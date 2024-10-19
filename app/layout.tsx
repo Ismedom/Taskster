@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <html lang="en" className={GeistSans.className} suppressHydrationWarning>
             <body className="bg-background text-foreground">
                 <ReduxProvider>
-                    <div className="flex flex-col gap-20 max-w-5xl p-5">{children}</div>
+                    <>{children}</>
                 </ReduxProvider>
             </body>
         </html>

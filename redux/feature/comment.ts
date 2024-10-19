@@ -1,4 +1,4 @@
-// slices/projectsSlice.ts
+//
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { addcomment, commentsState, deleteCommentById, fetchComments, fetchCommentsById } from "../actions/comment";
 import { RootState } from "../store";

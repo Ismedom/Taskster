@@ -9,13 +9,19 @@ const NotificationArray = [
     },
     {
         id: "120",
-        title: "string",
+        title: "Testing js",
         actionStatus: "overdue",
         dueDate: "2014-02-01",
     },
     {
         id: "162",
         title: "game development",
+        actionStatus: "overdue",
+        dueDate: "2014-02-01",
+    },
+    {
+        id: "22",
+        title: "testing game",
         actionStatus: "overdue",
         dueDate: "2014-02-01",
     },
