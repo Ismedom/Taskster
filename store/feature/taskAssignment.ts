@@ -1,11 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { TaskAssignmentState } from "../test/tasksAssignments";
+// import { TaskAssignmentState } from "../test/tasksAssignments";
 import { TaskAssignment } from "@/interfaces/tasksAssignment";
 import {
     addTaskAssignment,
     deleteTaskAssignmentById,
     fetchTaskAssignmentById,
     fetchTaskAssignments,
+    TaskAssignmentState,
 } from "../actions/tasksAssignment";
 import { RootState } from "../store";
 

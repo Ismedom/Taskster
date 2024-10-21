@@ -2,11 +2,11 @@
 
 import AnalyzeListCard from "@/components/card/AnalyzeListCard";
 import { Button } from "@/components/ui/buttons/button";
-import { fetchTaskAssignments } from "@/redux/actions/tasksAssignment";
-// import { selectAllComments } from "@/redux/feature/comment";
-import { selectProjectsError, selectProjectsStatus } from "@/redux/feature/projects";
-import { selectAlltasksAssignment } from "@/redux/feature/taskAssignment";
-import { AppDispatch } from "@/redux/store";
+import { fetchTaskAssignments } from "@/store/actions/tasksAssignment";
+// import { selectAllComments } from "@/store/feature/comment";
+import { selectProjectsError, selectProjectsStatus } from "@/store/feature/projects";
+import { selectAlltasksAssignment } from "@/store/feature/taskAssignment";
+import { AppDispatch } from "@/store/store";
 import React, { useEffect } from "react";
 
 const page = () => {

@@ -1,7 +1,7 @@
 import { EnvVarWarning } from "@/components/auth/env-var-warning";
 
 import HeaderAuth from "../components/auth/header-auth";
-import { hasEnvVars } from "@/utils/supabase/check-env-vars";
+import { hasEnvVars } from "@/supabase/check-env-vars";
 
 export default async function Index() {
     return (

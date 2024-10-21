@@ -1,6 +1,6 @@
 import React from "react";
 
-const BookMarkIcon = () => {
+const BookMarkIcon = ({ className = "size-6" }: { className?: string }) => {
     return (
         <>
             <svg
@@ -9,7 +9,7 @@ const BookMarkIcon = () => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="size-6">
+                className={className}>
                 <path
                     strokeLinecap="round"
                     strokeLinejoin="round"

@@ -2,7 +2,7 @@
 
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { Project } from "../../interfaces/projects";
-import { addItem, deleteItemById, fetchItemById, fetchItems } from "@/utils/supabase/supabaseHelpers";
+import { addItem, deleteItemById, fetchItemById, fetchItems } from "@/supabase/supabaseHelpers";
 
 export interface ProjectsState {
     items: Project[];
@@ -23,7 +23,7 @@ export const fetchProjectsById = createAsyncThunk(
 export const deleteProjectsById = createAsyncThunk(
     "deleteProjectsById",
     async ({ id, userId }: { id: string; userId: string }) => {
-        return await deleteItemById("projects", "owner_id", userId);
+        return await deleteItemById("projects", "owner_id", userId, "id", id);
     }
 );
 
