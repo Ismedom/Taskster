@@ -3,7 +3,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import { Comment } from "@/interfaces/comment";
-import { addItem, deleteItemById, fetchItemById, fetchItems } from "@/utils/supabase/supabaseHelpers";
+import { addItem, deleteItemById, fetchItemById, fetchItems } from "@/supabase/supabaseHelpers";
 
 export interface commentsState {
     items: Comment[];
@@ -17,14 +17,14 @@ export const fetchComments = createAsyncThunk("fetchComments", async () => {
 export const fetchCommentsById = createAsyncThunk(
     "fetchCommentById",
     async ({ id, userId }: { id: string; userId: string }) => {
-        return await fetchItemById<Comment>("comments", "owner_id", userId);
+        return await fetchItemById<Comment>("comments", "owner_id", userId, "id", id);
     }
 );
 
 export const deleteCommentById = createAsyncThunk(
     "deleteCommnentsById",
     async ({ id, userId }: { id: string; userId: string }) => {
-        return await deleteItemById("comments", "owner_id", userId);
+        return await deleteItemById("comments", "owner_id", userId, "id", id);
     }
 );
 

@@ -10,6 +10,7 @@ export const initialState: tasksState = {
     items: [],
     status: "idle",
     error: null,
+    taskDetailId: "",
 };
 
 const handlePending = (state: tasksState) => {
@@ -42,6 +43,9 @@ export const tasksSlice = createSlice({
             state.status = "idle";
             state.error = null;
         },
+        settaskDetailId: (state, action: PayloadAction<string>) => {
+            state.taskDetailId = action.payload;
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -67,10 +71,11 @@ export const tasksSlice = createSlice({
     },
 });
 
-export const { resetStatus } = tasksSlice.actions;
+export const { resetStatus, settaskDetailId } = tasksSlice.actions;
 
 export const selectAllTasks = (state: RootState) => state.tasks.items;
 export const selectTasksStatus = (state: RootState) => state.tasks.status;
+export const selectTasksDetailId = (state: RootState) => state.tasks.taskDetailId;
 export const selectTasksError = (state: RootState) => state.tasks.error;
 export const selectTaskById = (state: RootState, taskId: string) =>
     state.tasks.items.find((task) => task.id === taskId);

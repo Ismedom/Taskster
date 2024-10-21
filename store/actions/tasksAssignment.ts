@@ -3,7 +3,7 @@
 //
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { TaskAssignment } from "@/interfaces/tasksAssignment";
-import { addItem, deleteItemById, fetchItemById, fetchItems } from "@/utils/supabase/supabaseHelpers";
+import { addItem, deleteItemById, fetchItemById, fetchItems } from "@/supabase/supabaseHelpers";
 
 export interface TaskAssignmentState {
     items: TaskAssignment[];
@@ -16,21 +16,21 @@ export const fetchTaskAssignments = createAsyncThunk("fetchTaskAssignments", asy
 
 export const fetchTaskAssignmentById = createAsyncThunk(
     "fetchTaskAssignmentById",
-    async ({ id, project_id }: { id: string; project_id: string }) => {
-        return await fetchItemById<TaskAssignment>("taskAssignments", "project_id", project_id);
+    async ({ owner_id, task_id }: { owner_id: string; task_id: string }) => {
+        return await fetchItemById<TaskAssignment>("task_assignments", "task_id", task_id, "assign_from", owner_id);
     }
 );
 
 export const deleteTaskAssignmentById = createAsyncThunk(
     "deleteTaskAssignmentById",
     async ({ id, project_id }: { id: string; project_id: string }) => {
-        return await deleteItemById("taskAssignments", "project_id", project_id);
+        return await deleteItemById("task_assignments", "project_id", project_id, "id", id);
     }
 );
 
 export const addTaskAssignment = createAsyncThunk(
     "addTasks",
     async (newTaskAssignment: Omit<TaskAssignment, "id" | "created_at">) => {
-        return await addItem<TaskAssignment>("taskAssignment", newTaskAssignment);
+        return await addItem<TaskAssignment>("task_assignments", newTaskAssignment);
     }
 );
