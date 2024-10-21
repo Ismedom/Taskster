@@ -3,12 +3,13 @@
 //
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { Task } from "../../interfaces/tasks";
-import { addItem, deleteItemById, fetchItemById, fetchItems } from "@/utils/supabase/supabaseHelpers";
+import { addItem, deleteItemById, fetchItemById, fetchItems } from "@/supabase/supabaseHelpers";
 
 export interface tasksState {
     items: Task[];
     status: "idle" | "loading" | "succeeded" | "failed";
     error: string | null;
+    taskDetailId: string;
 }
 export const fetchTasks = createAsyncThunk("fetchTasks", async () => {
     return await fetchItems<Task>("tasks");
@@ -16,15 +17,15 @@ export const fetchTasks = createAsyncThunk("fetchTasks", async () => {
 
 export const fetchTasksById = createAsyncThunk(
     "fetchTasksById",
-    async ({ id, project_id }: { id: string; project_id: string }) => {
-        return await fetchItemById<Task>("tasks", "project_id", project_id);
+    async ({ id = "", project_id }: { id?: string; project_id: string }) => {
+        return await fetchItemById<Task>("tasks", "project_id", project_id, "id", id);
     }
 );
 
 export const deleteTasksById = createAsyncThunk(
     "deleteTasksById",
     async ({ id, project_id }: { id: string; project_id: string }) => {
-        return await deleteItemById("tasks", "project_id", project_id);
+        return await deleteItemById("tasks", "project_id", project_id, "id", id);
     }
 );
 

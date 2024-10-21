@@ -1,6 +1,6 @@
 import React from "react";
 
-const UserIcon = ({ className = "size-6" }: { className?: string }) => {
+const ListIcon = ({ className }: { className: string }) => {
     return (
         <>
             <svg
@@ -13,11 +13,11 @@ const UserIcon = ({ className = "size-6" }: { className?: string }) => {
                 <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                    d="M8.242 5.992h12m-12 6.003H20.24m-12 5.999h12M4.117 7.495v-3.75H2.99m1.125 3.75H2.99m1.125 0H5.24m-1.92 2.577a1.125 1.125 0 1 1 1.591 1.59l-1.83 1.83h2.16M2.99 15.745h1.125a1.125 1.125 0 0 1 0 2.25H3.74m0-.002h.375a1.125 1.125 0 0 1 0 2.25H2.99"
                 />
             </svg>
         </>
     );
 };
 
-export default UserIcon;
+export default ListIcon;
